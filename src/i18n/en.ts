@@ -77,7 +77,7 @@ export const en = {
       { name: "desktop & mobile", items: ["Appium", "WinAppDriver", "Linux AT-SPI", "pywinauto", "Xvfb", "Qt / PySide6"] },
       { name: "ci/cd & infra", items: ["GitLab CI", "GitHub Actions", "Docker", "SonarQube", "Vault", "NuGet", "Linux / Astra Linux"] },
       { name: "embedded & iot", items: ["Hardware-in-the-loop", "Firmware testing", "SSH automation", "Modbus / UDP", "CRC & frame validation", "OTA updates"] },
-      { name: "algorithms & cv", items: ["OpenCV", "NumPy", "ROS 2 / MCAP replay", "CV model validation", "Property-based testing"] },
+      { name: "algorithms, cv & speech", items: ["OpenCV", "NumPy", "ROS 2 / MCAP replay", "CV model validation", "Speech recognition (ASR) testing", "Property-based testing"] },
     ],
   },
 
@@ -161,7 +161,7 @@ export const en = {
         period: "2023 — now",
         role: "Freelance SDET / QA Automation Engineer",
         company: "Self-employed · Berlin · B2B and contract work",
-        text: "Test frameworks, test infrastructure and CI/CD for product teams. Clients in industrial software, desktop software, e-commerce, hardware R&D, IoT & computer vision and education.",
+        text: "Test frameworks, test infrastructure and CI/CD for product teams. Clients in industrial software, desktop software, e-commerce, speech recognition, hardware R&D, IoT & computer vision and education.",
       },
     ],
     educationTitle: "education",

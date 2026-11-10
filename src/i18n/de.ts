@@ -79,7 +79,7 @@ export const de: Dictionary = {
       { name: "desktop & mobile", items: ["Appium", "WinAppDriver", "Linux AT-SPI", "pywinauto", "Xvfb", "Qt / PySide6"] },
       { name: "ci/cd & infra", items: ["GitLab CI", "GitHub Actions", "Docker", "SonarQube", "Vault", "NuGet", "Linux / Astra Linux"] },
       { name: "embedded & iot", items: ["Hardware-in-the-Loop", "Firmware-Tests", "SSH-Automatisierung", "Modbus / UDP", "CRC- & Frame-Validierung", "OTA-Updates"] },
-      { name: "algorithmen & cv", items: ["OpenCV", "NumPy", "ROS 2 / MCAP-Replay", "Validierung von CV-Modellen", "Property-based Testing"] },
+      { name: "algorithmen, cv & sprache", items: ["OpenCV", "NumPy", "ROS 2 / MCAP-Replay", "Validierung von CV-Modellen", "Tests von Spracherkennung (ASR)", "Property-based Testing"] },
     ],
   },
 
@@ -163,7 +163,7 @@ export const de: Dictionary = {
         period: "2023 — heute",
         role: "Freelance SDET / QA Automation Engineer",
         company: "Selbstständig · Berlin · B2B und Projektverträge",
-        text: "Test-Frameworks, Testinfrastruktur und CI/CD für Produktteams. Kunden aus Industriesoftware, Desktop-Software, E-Commerce, Hardware-F&E, IoT & Computer Vision und Bildung.",
+        text: "Test-Frameworks, Testinfrastruktur und CI/CD für Produktteams. Kunden aus Industriesoftware, Desktop-Software, E-Commerce, Spracherkennung, Hardware-F&E, IoT & Computer Vision und Bildung.",
       },
     ],
     educationTitle: "ausbildung",
