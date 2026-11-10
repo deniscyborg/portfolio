@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { Locale } from "@/config/site";
 import type { Dictionary } from "@/i18n";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -10,19 +11,17 @@ type Props = {
   dict: Dictionary;
   title: string;
   path: string;
+  children: ReactNode;
 };
 
-/**
- * Заготовка Impressum / Datenschutz.
- * TODO: заполнить юридически корректным текстом до публикации сайта (обязательно для ИП в Германии).
- */
-export function LegalPage({ locale, dict, title, path }: Props) {
+/** Каркас юридических страниц: шапка, заголовок, текст, ссылка назад. */
+export function LegalPage({ locale, dict, title, path, children }: Props) {
   return (
     <>
       <SiteHeader locale={locale} dict={dict} path={path} />
       <main className="mx-auto max-w-3xl px-4 pt-20 sm:px-6">
         <h1 className="text-4xl font-semibold text-white">{title}</h1>
-        <p className="mt-6 font-mono text-dim">{dict.legal.placeholder}</p>
+        <div className="mt-6">{children}</div>
         <Link href={localePath(locale)} className="mt-10 inline-block font-mono text-sm text-phosphor hover:underline">
           ← {dict.legal.back}
         </Link>

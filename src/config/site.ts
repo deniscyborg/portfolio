@@ -23,6 +23,12 @@ export const site = {
   /** Телефон показывается на сайте (контакты, Impressum); в README на GitHub не публикуется */
   phone: { display: "+49 176 76343858", tel: "+4917676343858" } as { display: string; tel: string } | null,
 
+  /** Ladungsfähige Anschrift для Impressum (§ 5 DDG) */
+  address: { street: "Karl-Stieler-Str. 18", zip: "12167", city: "Berlin", country: { en: "Germany", de: "Deutschland" } },
+
+  /** USt-IdNr — показывается в Impressum */
+  vatId: "DE459105802",
+
   /**
    * true — Kleinunternehmer по §19 UStG: НДС не начисляется, на сайте другая сноска.
    * TODO: уточнить статус ИП.

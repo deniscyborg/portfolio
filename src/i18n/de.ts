@@ -306,7 +306,6 @@ export const de: Dictionary = {
   legal: {
     imprintTitle: "Impressum",
     privacyTitle: "Datenschutzerklärung",
-    placeholder: "Diese Seite wird gerade vorbereitet.",
     back: "Zur Startseite",
   },
   notFound: {

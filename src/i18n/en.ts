@@ -304,7 +304,6 @@ export const en = {
   legal: {
     imprintTitle: "Imprint",
     privacyTitle: "Privacy policy",
-    placeholder: "This page is being prepared.",
     back: "Back to home",
   },
   notFound: {
