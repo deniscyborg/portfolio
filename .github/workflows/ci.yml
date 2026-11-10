@@ -99,6 +99,11 @@ jobs:
             cd /var/www
             # Подмена каталога целиком: посетители не видят наполовину загруженный сайт
             rm -rf ${{ vars.SITE_DOMAIN }}.old
+            # Файлы сборки прошлых версий оставляем: открытые и закешированные страницы продолжают их загружать
+            if [ -d ${{ vars.SITE_DOMAIN }}/_next/static ]; then
+              mkdir -p ${{ vars.SITE_DOMAIN }}.new/_next/static
+              cp -rn ${{ vars.SITE_DOMAIN }}/_next/static/. ${{ vars.SITE_DOMAIN }}.new/_next/static/
+            fi
             [ -d ${{ vars.SITE_DOMAIN }} ] && mv ${{ vars.SITE_DOMAIN }} ${{ vars.SITE_DOMAIN }}.old
             mv ${{ vars.SITE_DOMAIN }}.new ${{ vars.SITE_DOMAIN }}
 
