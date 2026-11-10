@@ -266,6 +266,7 @@ export const de: Dictionary = {
     linkedin: "LinkedIn",
     github: "GitHub",
     email: "E-Mail",
+    phone: "Telefon",
     location: "Berlin, Deutschland",
   },
   blog: {

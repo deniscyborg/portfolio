@@ -18,6 +18,9 @@ export const site = {
   /** Личная почта на новом домене. null — блок с почтой не показывается. */
   email: null as string | null,
 
+  /** Телефон показывается на сайте (контакты, Impressum); в README на GitHub не публикуется */
+  phone: { display: "+49 176 76343858", tel: "+4917676343858" } as { display: string; tel: string } | null,
+
   /**
    * true — Kleinunternehmer по §19 UStG: НДС не начисляется, на сайте другая сноска.
    * TODO: уточнить статус ИП.

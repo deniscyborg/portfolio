@@ -65,6 +65,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
     { label: t.linkedin, value: "linkedin.com/in/denis-davydov", href: site.links.linkedin },
     { label: t.github, value: "github.com/deniscyborg", href: site.links.github },
     ...(site.email ? [{ label: t.email, value: site.email, href: `mailto:${site.email}` }] : []),
+    ...(site.phone ? [{ label: t.phone, value: site.phone.display, href: `tel:${site.phone.tel}` }] : []),
   ];
 
   return (

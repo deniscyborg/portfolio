@@ -264,6 +264,7 @@ export const en = {
     linkedin: "LinkedIn",
     github: "GitHub",
     email: "Email",
+    phone: "Phone",
     location: "Berlin, Germany",
   },
   blog: {
