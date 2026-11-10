@@ -103,4 +103,8 @@ jobs:
             mv ${{ vars.SITE_DOMAIN }}.new ${{ vars.SITE_DOMAIN }}
 
       - name: Smoke check
-        run: curl --silent --fail --location --retry 5 --retry-delay 3 "http://${{ vars.SITE_DOMAIN }}/en/" > /dev/null
+        # 401 — сайт отвечает, но закрыт паролем (режим предпросмотра до готовности Impressum)
+        run: |
+          code=$(curl --silent --location --retry 5 --retry-delay 3 -o /dev/null -w "%{http_code}" "https://${{ vars.SITE_DOMAIN }}/en/")
+          echo "HTTP $code"
+          [ "$code" = "200" ] || [ "$code" = "401" ]
