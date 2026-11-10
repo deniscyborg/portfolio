@@ -16,6 +16,7 @@ export function SiteHeader({ locale, dict, path = "/" }: Props) {
     { href: `${home}#services`, label: dict.nav.services },
     { href: `${home}#work`, label: dict.nav.work },
     { href: `${home}#experience`, label: dict.nav.experience },
+    { href: `${home}#about`, label: dict.nav.about },
     { href: localePath(locale, "/pricing/"), label: dict.nav.pricing },
     { href: localePath(locale, "/blog/"), label: dict.nav.blog },
     { href: `${home}#contact`, label: dict.nav.contact },

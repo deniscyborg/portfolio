@@ -10,7 +10,7 @@ import { formatDate, localePath } from "@/lib/format";
 export function PricingTeaser({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const t = dict.pricing;
   return (
-    <Section id="pricing" index="05" title={t.title} lead={t.lead}>
+    <Section id="pricing" index="06" title={t.title} lead={t.lead}>
       <PricingCards locale={locale} dict={dict} compact />
       <VatNote dict={dict} />
       <div className="mt-8">
@@ -26,7 +26,7 @@ export function BlogTeaser({ locale, dict, posts }: { locale: Locale; dict: Dict
   const t = dict.blog;
   if (posts.length === 0) return null;
   return (
-    <Section id="blog" index="06" title={t.title} lead={t.lead}>
+    <Section id="blog" index="07" title={t.title} lead={t.lead}>
       <PostList locale={locale} dict={dict} posts={posts.slice(0, 3)} />
       <div className="mt-8">
         <ButtonLink href={localePath(locale, "/blog/")} variant="ghost">
@@ -69,7 +69,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
   ];
 
   return (
-    <Section id="contact" index="07" title={t.title}>
+    <Section id="contact" index="08" title={t.title}>
       <div className="bracket grid gap-10 rounded-md border border-line-strong bg-panel p-8 md:grid-cols-2 md:p-12">
         <div>
           <p className="text-3xl leading-tight font-semibold text-white">{t.headline}</p>

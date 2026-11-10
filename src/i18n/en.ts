@@ -9,6 +9,7 @@ export const en = {
     expertise: "expertise",
     work: "work",
     experience: "experience",
+    about: "about",
     pricing: "pricing",
     blog: "blog",
     contact: "contact",
@@ -161,6 +162,22 @@ export const en = {
     education: [
       { school: "Bauman Moscow State Technical University", degree: "Bachelor of Engineering, Software Engineering · 2021" },
       { school: "Plekhanov Russian University of Economics", degree: "Bachelor of Economics, Finance and Credit" },
+    ],
+  },
+  about: {
+    title: "about",
+    lead: "The person behind the test suites.",
+    portraitAlt: "Portrait of Denis Davydov",
+    lines: [
+      "Berlin · Bauman Moscow State Technical University, software engineering (2021)",
+      "I like breaking things before users do — and building the tooling that makes that repeatable.",
+      "Languages: Russian (native), English, German.",
+      "Off-screen: mountains, my Pomeranian and exploring Berlin.",
+    ],
+    cards: [
+      { image: "about-elbrus", caption: "elbrus, 2022", alt: "Denis in the mountains near Elbrus" },
+      { image: "about-dog", caption: "weekends with my pomeranian", alt: "Denis with his Pomeranian in a park" },
+      { image: "about-berlin", caption: "berlin, my base", alt: "Berlin TV tower behind the S-Bahn sign Oranienburger Straße" },
     ],
   },
   pricing: {

@@ -18,7 +18,7 @@ for (const locale of LOCALES) {
 
       await expect(page.locator("html")).toHaveAttribute("lang", locale);
       await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
-      for (const id of ["services", "expertise", "work", "experience", "pricing", "blog", "contact"]) {
+      for (const id of ["services", "expertise", "work", "experience", "about", "pricing", "blog", "contact"]) {
         await expect(page.locator(`#${id}`)).toBeAttached();
       }
       await page.waitForLoadState("networkidle");
@@ -28,7 +28,7 @@ for (const locale of LOCALES) {
     test("navigation links point inside the same locale", async ({ page }) => {
       await page.goto(`/${locale}/`);
       const links = page.getByRole("navigation", { name: "Main" }).getByRole("link");
-      await expect(links).toHaveCount(6);
+      await expect(links).toHaveCount(7);
       for (const href of await links.evaluateAll((els) => els.map((a) => a.getAttribute("href")))) {
         expect(href).toMatch(new RegExp(`^/${locale}/`));
       }

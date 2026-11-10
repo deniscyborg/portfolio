@@ -3,7 +3,7 @@
  */
 export const site = {
   /** Задаётся при сборке: NEXT_PUBLIC_SITE_URL=https://davydovden.com */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://davydovdenis.de",
   name: "Denis Davydov",
 
   links: {
@@ -25,7 +25,7 @@ export const site = {
    * true — Kleinunternehmer по §19 UStG: НДС не начисляется, на сайте другая сноска.
    * TODO: уточнить статус ИП.
    */
-  smallBusiness: false,
+  smallBusiness: true, // Kleinunternehmer gem. § 19 UStG
 
   /**
    * Цены в евро без НДС. null — показывается «по запросу».

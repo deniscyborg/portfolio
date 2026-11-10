@@ -4,6 +4,7 @@ import { getDictionary } from "@/i18n";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { BlogTeaser, Contact, PricingTeaser } from "@/components/home/Closing";
+import { About } from "@/components/home/About";
 import { Experience } from "@/components/home/Experience";
 import { Hero } from "@/components/home/Hero";
 import { Expertise, Services } from "@/components/home/Services";
@@ -24,6 +25,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
         <Expertise dict={dict} />
         <Work dict={dict} />
         <Experience dict={dict} />
+        <About dict={dict} />
         <PricingTeaser locale={lang} dict={dict} />
         <BlogTeaser locale={lang} dict={dict} posts={getPosts(lang)} />
         <Contact dict={dict} />

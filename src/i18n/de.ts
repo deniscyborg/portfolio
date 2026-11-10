@@ -11,6 +11,7 @@ export const de: Dictionary = {
     expertise: "expertise",
     work: "projekte",
     experience: "erfahrung",
+    about: "über mich",
     pricing: "preise",
     blog: "blog",
     contact: "kontakt",
@@ -163,6 +164,22 @@ export const de: Dictionary = {
     education: [
       { school: "Staatliche Technische Universität Moskau „N. E. Bauman“", degree: "Bachelor of Engineering, Softwareentwicklung · 2021" },
       { school: "Russische Plechanow-Wirtschaftsuniversität", degree: "Bachelor of Economics, Fachrichtung Finanzen und Kredit" },
+    ],
+  },
+  about: {
+    title: "über mich",
+    lead: "Der Mensch hinter den Testsuiten.",
+    portraitAlt: "Porträt von Denis Davydov",
+    lines: [
+      "Berlin · Staatliche Technische Universität Moskau „N. E. Bauman“, Softwareentwicklung (2021)",
+      "Ich finde Fehler gern, bevor es die Nutzer tun — und baue die Werkzeuge, die das wiederholbar machen.",
+      "Sprachen: Russisch (Muttersprache), Englisch, Deutsch.",
+      "Abseits des Bildschirms: Berge, mein Zwergspitz und Berlin entdecken.",
+    ],
+    cards: [
+      { image: "about-elbrus", caption: "elbrus, 2022", alt: "Denis in den Bergen am Elbrus" },
+      { image: "about-dog", caption: "wochenenden mit meinem zwergspitz", alt: "Denis mit seinem Zwergspitz im Park" },
+      { image: "about-berlin", caption: "berlin, meine basis", alt: "Berliner Fernsehturm hinter dem S-Bahn-Schild Oranienburger Straße" },
     ],
   },
   pricing: {
