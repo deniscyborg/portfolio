@@ -282,6 +282,7 @@ export const en = {
     github: "GitHub",
     email: "Email",
     phone: "Phone",
+    telegram: "Telegram",
     location: "Berlin, Germany",
   },
   blog: {

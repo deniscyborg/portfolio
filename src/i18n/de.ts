@@ -284,6 +284,7 @@ export const de: Dictionary = {
     github: "GitHub",
     email: "E-Mail",
     phone: "Telefon",
+    telegram: "Telegram",
     location: "Berlin, Deutschland",
   },
   blog: {

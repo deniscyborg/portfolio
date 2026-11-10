@@ -16,7 +16,9 @@ export const site = {
   },
 
   /** Личная почта на новом домене. null — блок с почтой не показывается. */
-  email: null as string | null,
+  email: "info@davydovdenis.de" as string | null,
+
+  telegram: { handle: "@Dcyborg", url: "https://t.me/Dcyborg" } as { handle: string; url: string } | null,
 
   /** Телефон показывается на сайте (контакты, Impressum); в README на GitHub не публикуется */
   phone: { display: "+49 176 76343858", tel: "+4917676343858" } as { display: string; tel: string } | null,
