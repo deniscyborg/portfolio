@@ -5,15 +5,21 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "postbuild": "node scripts/flatten-segments.mjs out",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "preview": "npx --yes serve@14.2.4 out -l 3000",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
+    "marked": "^18.2.0",
     "next": "16.4.6",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "@tailwindcss/turbopack": "4.3.3",
     "@types/node": "^20",
     "@types/react": "^19",

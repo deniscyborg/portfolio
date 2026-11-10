@@ -1,1 +1,195 @@
 @import "tailwindcss";
+
+/* Терминальная тема: «фосфорный» зелёный на почти чёрном, янтарь для акцентов */
+@theme {
+  --color-bg: #070b09;
+  --color-panel: #0c1210;
+  --color-panel-2: #101a16;
+  --color-line: #1d2b25;
+  --color-line-strong: #2b3f36;
+  --color-ink: #d6e4dc;
+  --color-dim: #8fa69a;
+  --color-mute: #5f7568;
+  --color-phosphor: #3dff9a;
+  --color-phosphor-dim: #1f9e5e;
+  --color-amber: #ffb547;
+  --color-danger: #ff6b6b;
+
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "Cascadia Code", Consolas, monospace;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    background: var(--color-phosphor);
+    color: var(--color-bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-phosphor);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Едва заметные сканлайны поверх фото — отсылка к ЭЛТ-мониторам */
+  .scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(to bottom, rgb(0 0 0 / 0.22) 0 1px, transparent 1px 3px);
+  }
+
+  /* Уголки-скобки у карточек */
+  .bracket {
+    position: relative;
+  }
+  .bracket::before,
+  .bracket::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: var(--color-phosphor-dim);
+    pointer-events: none;
+  }
+  .bracket::before {
+    top: -1px;
+    left: -1px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+  .bracket::after {
+    right: -1px;
+    bottom: -1px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 0.6em;
+    height: 1.1em;
+    margin-left: 2px;
+    vertical-align: text-bottom;
+    background: var(--color-phosphor);
+    animation: blink 1.1s steps(1) infinite;
+  }
+
+  /* Строки терминала появляются по очереди */
+  .type-line {
+    opacity: 0;
+    animation: reveal 0.01s forwards;
+    animation-delay: calc(var(--i) * 0.45s + 0.2s);
+  }
+
+  .glow {
+    text-shadow: 0 0 12px rgb(61 255 154 / 0.35);
+  }
+
+  /* Типографика статей блога */
+  .prose-terminal {
+    @apply text-[1.05rem] leading-8 text-ink;
+  }
+  .prose-terminal h2 {
+    @apply mt-12 mb-4 font-mono text-xl text-phosphor;
+  }
+  .prose-terminal h2::before {
+    content: "## ";
+    color: var(--color-mute);
+  }
+  .prose-terminal h3 {
+    @apply mt-8 mb-3 font-mono text-lg text-ink;
+  }
+  .prose-terminal p {
+    @apply my-5;
+  }
+  .prose-terminal ul,
+  .prose-terminal ol {
+    @apply my-5 space-y-2 pl-6;
+  }
+  .prose-terminal ul {
+    list-style: none;
+  }
+  .prose-terminal ul > li {
+    position: relative;
+  }
+  .prose-terminal ul > li::before {
+    content: ">";
+    position: absolute;
+    left: -1.25rem;
+    color: var(--color-phosphor);
+    font-family: var(--font-mono);
+  }
+  .prose-terminal ol {
+    list-style: decimal;
+  }
+  .prose-terminal ol > li::marker {
+    color: var(--color-phosphor);
+    font-family: var(--font-mono);
+  }
+  .prose-terminal a {
+    @apply text-phosphor underline decoration-phosphor-dim underline-offset-4 hover:decoration-phosphor;
+  }
+  .prose-terminal strong {
+    @apply font-semibold text-white;
+  }
+  .prose-terminal code {
+    @apply rounded bg-panel-2 px-1.5 py-0.5 font-mono text-[0.9em] text-amber;
+  }
+  .prose-terminal pre {
+    @apply my-6 overflow-x-auto rounded border border-line bg-panel p-4 font-mono text-sm leading-6;
+  }
+  .prose-terminal pre code {
+    @apply bg-transparent p-0 text-ink;
+  }
+  .prose-terminal blockquote {
+    @apply my-6 border-l-2 border-amber pl-5 text-dim;
+  }
+  .prose-terminal table {
+    @apply my-6 w-full border-collapse text-sm;
+  }
+  .prose-terminal th,
+  .prose-terminal td {
+    @apply border border-line px-3 py-2 text-left;
+  }
+  .prose-terminal th {
+    @apply bg-panel font-mono text-dim;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .type-line {
+    opacity: 1;
+    animation: none;
+  }
+  .cursor {
+    animation: none;
+  }
+}

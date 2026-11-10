@@ -1,0 +1,106 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Lint, build, e2e tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      # Домен задаётся переменной репозитория SITE_URL (Settings → Variables)
+      NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: E2E tests against the exported site
+        run: npm run test:e2e
+
+      - name: Upload Playwright report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report
+
+      - name: Upload site
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: out
+          retention-days: 7
+
+  deploy:
+    name: Deploy to VPS
+    needs: build-and-test
+    # Деплой включается, когда задана переменная SITE_DOMAIN (после покупки домена)
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.SITE_DOMAIN != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: site
+          path: out
+
+      - name: Prepare target directory
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            set -e
+            rm -rf /var/www/${{ vars.SITE_DOMAIN }}.new
+            mkdir -p /var/www/${{ vars.SITE_DOMAIN }}.new
+
+      - name: Upload files
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "out/*"
+          target: "/var/www/${{ vars.SITE_DOMAIN }}.new/"
+          strip_components: 1
+
+      - name: Switch to the new version
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            set -e
+            cd /var/www
+            # Подмена каталога целиком: посетители не видят наполовину загруженный сайт
+            rm -rf ${{ vars.SITE_DOMAIN }}.old
+            [ -d ${{ vars.SITE_DOMAIN }} ] && mv ${{ vars.SITE_DOMAIN }} ${{ vars.SITE_DOMAIN }}.old
+            mv ${{ vars.SITE_DOMAIN }}.new ${{ vars.SITE_DOMAIN }}
+
+      - name: Smoke check
+        run: curl --silent --fail --location --retry 5 --retry-delay 3 "http://${{ vars.SITE_DOMAIN }}/en/" > /dev/null
