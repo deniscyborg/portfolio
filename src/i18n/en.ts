@@ -305,6 +305,7 @@ export const en = {
     phone: "Phone",
     telegram: "Telegram",
     location: "Berlin, Germany",
+    photoAlt: "Two red fire brigade standpipes on a Berlin house wall",
   },
   blog: {
     title: "blog",

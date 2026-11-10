@@ -307,6 +307,7 @@ export const de: Dictionary = {
     phone: "Telefon",
     telegram: "Telegram",
     location: "Berlin, Deutschland",
+    photoAlt: "Zwei rote Löschwassereinspeisungen an einer Berliner Hauswand",
   },
   blog: {
     title: "blog",

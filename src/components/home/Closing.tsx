@@ -2,6 +2,7 @@ import Link from "next/link";
 import { site, type Locale } from "@/config/site";
 import type { Dictionary } from "@/i18n";
 import { ButtonLink } from "@/components/ButtonLink";
+import { Photo } from "@/components/Photo";
 import { PricingCards, VatNote } from "@/components/PricingCards";
 import { Section } from "@/components/Section";
 import type { PostMeta } from "@/lib/blog";
@@ -71,7 +72,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
 
   return (
     <Section id="contact" index="08" title={t.title}>
-      <div className="bracket grid gap-10 rounded-md border border-line-strong bg-panel p-8 md:grid-cols-2 md:p-12">
+      <div className="bracket grid gap-10 rounded-md border border-line-strong bg-panel p-8 md:grid-cols-2 md:p-12 lg:grid-cols-[1fr_auto_15rem] lg:py-8 lg:pr-8">
         <div>
           <p className="text-3xl leading-tight font-semibold text-white">{t.headline}</p>
           <p className="mt-4 leading-relaxed text-dim">{t.text}</p>
@@ -97,6 +98,18 @@ export function Contact({ dict }: { dict: Dictionary }) {
             <dd className="text-ink">{t.location}</dd>
           </div>
         </dl>
+        <div className="scanlines relative hidden overflow-hidden rounded-md border border-line lg:block">
+          <Photo
+            name="contact-standpipes"
+            widths={[480, 960]}
+            sizes="240px"
+            width={960}
+            height={1412}
+            alt={t.photoAlt}
+            className="absolute inset-0 h-full w-full object-cover grayscale transition duration-300 hover:grayscale-0"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-phosphor/15 mix-blend-color" />
+        </div>
       </div>
     </Section>
   );
