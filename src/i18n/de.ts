@@ -191,10 +191,16 @@ export const de: Dictionary = {
       "Sprachen: Russisch (Muttersprache), Englisch, Deutsch.",
       "Abseits des Bildschirms: Berge und mein Zwergspitz.",
     ],
+    interests: [
+      "Interface-Design: Layout, Typografie, Kontrast — Oberflächen, die sich leicht bedienen und leicht testen lassen.",
+      "Barrierefreiheit: Tastatur, Screenreader, Mobilgeräte.",
+      "Visuelle Regressionstests und Designsysteme.",
+      "Eigene Projekte: diese Website, ein Demo-Shop und ein Test-Showcase — Design, Code und Tests von mir.",
+    ],
     cards: [
-      { image: "about-elbrus", caption: "elbrus, 2022", alt: "Denis in den Bergen am Elbrus" },
-      { image: "about-dog", caption: "wochenenden mit meinem zwergspitz", alt: "Denis mit seinem Zwergspitz im Park" },
       { image: "about-berlin", caption: "berlin, zuhause seit 2023", alt: "Berliner Fernsehturm hinter dem S-Bahn-Schild Oranienburger Straße" },
+      { image: "about-dog", caption: "wochenenden mit meinem zwergspitz", alt: "Denis mit seinem Zwergspitz im Park" },
+      { image: "about-elbrus", caption: "elbrus, 2022", alt: "Denis in den Bergen am Elbrus" },
     ],
   },
   pricing: {

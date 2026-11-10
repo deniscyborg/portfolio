@@ -189,10 +189,16 @@ export const en = {
       "Languages: Russian (native), English, German.",
       "Off-screen: mountains and my Pomeranian.",
     ],
+    interests: [
+      "Interface design: layout, typography, contrast — screens that are easy to use and easy to test.",
+      "Accessibility: keyboard, screen readers, mobile.",
+      "Visual regression and design systems.",
+      "Side projects: this site, a demo shop and a test showcase — design, code and tests by me.",
+    ],
     cards: [
-      { image: "about-elbrus", caption: "elbrus, 2022", alt: "Denis in the mountains near Elbrus" },
-      { image: "about-dog", caption: "weekends with my pomeranian", alt: "Denis with his Pomeranian in a park" },
       { image: "about-berlin", caption: "berlin, home since 2023", alt: "Berlin TV tower behind the S-Bahn sign Oranienburger Straße" },
+      { image: "about-dog", caption: "weekends with my pomeranian", alt: "Denis with his Pomeranian in a park" },
+      { image: "about-elbrus", caption: "elbrus, 2022", alt: "Denis in the mountains near Elbrus" },
     ],
   },
   pricing: {
