@@ -112,11 +112,11 @@ export const de: Dictionary = {
         open: false,
       },
       {
-        id: "navigation",
-        title: "Testlabor für ein Embedded-Navigationssystem",
-        context: "Hardware-F&E · Hardware-in-the-Loop",
-        text: "Python-Teststände für Firmware und ein Navigationsprodukt auf Basis von Computer Vision: Tests auf realen Geräten per SSH, Protokoll- und CRC-Prüfungen, Docker-Gerätezwillinge, Wiedergabe aufgezeichneter Sensordaten mit ROS 2 und Genauigkeitsmetriken mit OpenCV — über 1.700 automatisierte Prüfungen sowie ein mit PySide6 entwickeltes Desktop-Teststudio.",
-        tags: ["Python", "pytest", "ROS 2", "OpenCV", "Docker", "PySide6"],
+        id: "hil-lab",
+        title: "Hardware-in-the-Loop-Testlabor",
+        context: "Hardware-F&E · Embedded-Geräte",
+        text: "Testautomatisierung in Python für Embedded-Geräte: Tests auf realer Hardware, simulierte Geräte in Docker und Wiedergabe aufgezeichneter Daten — über 1.700 automatisierte Prüfungen und ein Desktop-Werkzeug für das Testteam.",
+        tags: ["Python", "pytest", "Docker", "Hardware-in-the-Loop"],
         open: false,
       },
       {
@@ -171,15 +171,15 @@ export const de: Dictionary = {
     lead: "Der Mensch hinter den Testsuiten.",
     portraitAlt: "Porträt von Denis Davydov",
     lines: [
-      "Berlin · Staatliche Technische Universität Moskau „N. E. Bauman“, Softwareentwicklung (2021)",
+      "Seit 2023 in Berlin · Staatliche Technische Universität Moskau „N. E. Bauman“, Softwareentwicklung (2021)",
       "Ich finde Fehler gern, bevor es die Nutzer tun — und baue die Werkzeuge, die das wiederholbar machen.",
       "Sprachen: Russisch (Muttersprache), Englisch, Deutsch.",
-      "Abseits des Bildschirms: Berge, mein Zwergspitz und Berlin entdecken.",
+      "Abseits des Bildschirms: Berge und mein Zwergspitz.",
     ],
     cards: [
       { image: "about-elbrus", caption: "elbrus, 2022", alt: "Denis in den Bergen am Elbrus" },
       { image: "about-dog", caption: "wochenenden mit meinem zwergspitz", alt: "Denis mit seinem Zwergspitz im Park" },
-      { image: "about-berlin", caption: "berlin, meine basis", alt: "Berliner Fernsehturm hinter dem S-Bahn-Schild Oranienburger Straße" },
+      { image: "about-berlin", caption: "berlin, zuhause seit 2023", alt: "Berliner Fernsehturm hinter dem S-Bahn-Schild Oranienburger Straße" },
     ],
   },
   pricing: {

@@ -110,11 +110,11 @@ export const en = {
         open: false,
       },
       {
-        id: "navigation",
-        title: "Embedded navigation system lab",
-        context: "Hardware R&D · hardware-in-the-loop",
-        text: "Python lab test stands for firmware and a computer-vision navigation product: tests on real devices over SSH, protocol and CRC checks, Docker device twins, replay of recorded sensor data with ROS 2 and accuracy metrics with OpenCV — 1,700+ automated checks plus a desktop test studio built with PySide6.",
-        tags: ["Python", "pytest", "ROS 2", "OpenCV", "Docker", "PySide6"],
+        id: "hil-lab",
+        title: "Hardware-in-the-loop test lab",
+        context: "Hardware R&D · embedded devices",
+        text: "Python test automation for embedded devices: tests on real hardware, simulated devices in Docker and replay of recorded data — 1,700+ automated checks and a desktop tool for the test team.",
+        tags: ["Python", "pytest", "Docker", "Hardware-in-the-loop"],
         open: false,
       },
       {
@@ -169,15 +169,15 @@ export const en = {
     lead: "The person behind the test suites.",
     portraitAlt: "Portrait of Denis Davydov",
     lines: [
-      "Berlin · Bauman Moscow State Technical University, software engineering (2021)",
+      "In Berlin since 2023 · Bauman Moscow State Technical University, software engineering (2021)",
       "I like breaking things before users do — and building the tooling that makes that repeatable.",
       "Languages: Russian (native), English, German.",
-      "Off-screen: mountains, my Pomeranian and exploring Berlin.",
+      "Off-screen: mountains and my Pomeranian.",
     ],
     cards: [
       { image: "about-elbrus", caption: "elbrus, 2022", alt: "Denis in the mountains near Elbrus" },
       { image: "about-dog", caption: "weekends with my pomeranian", alt: "Denis with his Pomeranian in a park" },
-      { image: "about-berlin", caption: "berlin, my base", alt: "Berlin TV tower behind the S-Bahn sign Oranienburger Straße" },
+      { image: "about-berlin", caption: "berlin, home since 2023", alt: "Berlin TV tower behind the S-Bahn sign Oranienburger Straße" },
     ],
   },
   pricing: {
