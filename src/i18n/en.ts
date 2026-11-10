@@ -113,7 +113,7 @@ export const en = {
         id: "hil-lab",
         title: "Hardware-in-the-loop test lab",
         context: "Hardware R&D · embedded devices",
-        text: "Python test automation for embedded devices: tests on real hardware, simulated devices in Docker and replay of recorded data — 1,700+ automated checks and a desktop tool for the test team.",
+        text: "Python test automation for embedded devices: building test stands with real hardware, simulated devices in Docker and replay of recorded data — 1,700+ automated checks and a desktop tool for the test team.",
         tags: ["Python", "pytest", "Docker", "Hardware-in-the-loop"],
         open: false,
       },

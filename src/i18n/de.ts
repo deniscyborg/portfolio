@@ -115,7 +115,7 @@ export const de: Dictionary = {
         id: "hil-lab",
         title: "Hardware-in-the-Loop-Testlabor",
         context: "Hardware-F&E · Embedded-Geräte",
-        text: "Testautomatisierung in Python für Embedded-Geräte: Tests auf realer Hardware, simulierte Geräte in Docker und Wiedergabe aufgezeichneter Daten — über 1.700 automatisierte Prüfungen und ein Desktop-Werkzeug für das Testteam.",
+        text: "Testautomatisierung in Python für Embedded-Geräte: Aufbau von Testständen mit realer Hardware, simulierte Geräte in Docker und Wiedergabe aufgezeichneter Daten — über 1.700 automatisierte Prüfungen und ein Desktop-Werkzeug für das Testteam.",
         tags: ["Python", "pytest", "Docker", "Hardware-in-the-Loop"],
         open: false,
       },
