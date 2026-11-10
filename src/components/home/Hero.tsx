@@ -39,7 +39,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             <span className="size-2 animate-pulse rounded-full bg-phosphor" aria-hidden="true" />
             {t.status}
           </p>
-          <h1 className="mt-6 text-4xl leading-tight font-semibold tracking-tight text-white sm:text-5xl">
+          <h1 className="mt-6 text-4xl leading-tight font-semibold tracking-tight text-balance hyphens-auto break-words text-white sm:text-5xl">
             {t.headline}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-dim">{t.lead}</p>

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { isLocale, locales, site } from "@/config/site";
 import { getDictionary } from "@/i18n";
 import { fontVariables } from "@/lib/fonts";
+import { ogImage } from "@/lib/seo";
 import "../globals.css";
 
 // Только /en и /de; любые другие префиксы — 404 на этапе сборки
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
       title: dict.meta.title,
       description: dict.meta.description,
       locale: lang === "de" ? "de_DE" : "en_GB",
-      images: [{ url: "/images/hero-1280.webp", width: 1280, height: 720 }],
+      images: [ogImage],
     },
     icons: { icon: "/favicon.svg" },
   };

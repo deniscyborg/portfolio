@@ -2,9 +2,10 @@ import type { Dictionary } from "./en";
 
 export const de: Dictionary = {
   meta: {
-    title: "Denis Davydov — Freelance SDET & QA Automation Engineer, Berlin",
+    title: "Testautomatisierung & Softwaretests · Freelance SDET, Berlin",
     description:
-      "Testautomatisierungs-Frameworks, CI/CD und QAOps für Web-, Mobile-, Desktop-, Embedded- und KI/CV-Produkte. Selbstständiger Freelance-SDET aus Berlin, tätig in Deutschland und der EU.",
+      "Testautomatisierung als Dienstleistung: UI-, API- und End-to-End-Tests, CI/CD und Testinfrastruktur vom Freelance-SDET aus Berlin – remote EU-weit.",
+    serviceName: "Testautomatisierung als Dienstleistung",
   },
   nav: {
     services: "leistungen",

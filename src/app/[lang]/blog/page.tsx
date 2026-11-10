@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { isLocale } from "@/config/site";
 import { getDictionary } from "@/i18n";
@@ -11,7 +12,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/blog">): P
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const t = getDictionary(lang).blog;
-  return { title: t.pageTitle, description: t.lead };
+  return pageMetadata(lang, "/blog/", { title: t.pageTitle, description: t.lead });
 }
 
 export default async function BlogPage({ params }: PageProps<"/[lang]/blog">) {

@@ -159,6 +159,10 @@
   }
   .prose-terminal table {
     @apply my-6 w-full border-collapse text-sm;
+    /* Широкая таблица прокручивается внутри себя и не растягивает страницу на телефоне */
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
   }
   .prose-terminal th,
   .prose-terminal td {

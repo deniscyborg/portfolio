@@ -1,8 +1,9 @@
 export const en = {
   meta: {
-    title: "Denis Davydov — Freelance SDET & QA Automation Engineer, Berlin",
+    title: "Software Test Automation Services · Freelance SDET, Berlin",
     description:
-      "Test automation frameworks, CI/CD and QAOps for web, mobile, desktop, embedded and AI/CV products. Freelance SDET based in Berlin, working across Germany and the EU.",
+      "Software test automation services from a freelance SDET in Berlin: UI, API and end-to-end tests, CI/CD and test infrastructure. Remote across the EU.",
+    serviceName: "Software test automation services",
   },
   nav: {
     services: "services",

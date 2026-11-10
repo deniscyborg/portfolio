@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { isLocale } from "@/config/site";
 import { getDictionary } from "@/i18n";
@@ -8,7 +9,8 @@ import { PrivacyContent } from "@/components/legal/LegalContent";
 export async function generateMetadata({ params }: PageProps<"/[lang]/privacy">): Promise<Metadata> {
   const { lang } = await params;
   if (!isLocale(lang)) return {};
-  return { title: getDictionary(lang).legal.privacyTitle, robots: { index: false } };
+  const title = getDictionary(lang).legal.privacyTitle;
+  return { ...pageMetadata(lang, "/privacy/", { title, description: title }), robots: { index: false } };
 }
 
 export default async function PrivacyPage({ params }: PageProps<"/[lang]/privacy">) {

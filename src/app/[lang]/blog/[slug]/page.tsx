@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isLocale, locales, site } from "@/config/site";
@@ -20,11 +21,12 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/blog/[slug
   if (!isLocale(lang)) return {};
   const post = getPost(lang, slug);
   if (!post) return {};
-  return {
+  return pageMetadata(lang, `/blog/${slug}/`, {
     title: post.title,
     description: post.description,
-    openGraph: { type: "article", title: post.title, description: post.description, publishedTime: post.date },
-  };
+    type: "article",
+    publishedTime: post.date,
+  });
 }
 
 export default async function PostPage({ params }: PageProps<"/[lang]/blog/[slug]">) {

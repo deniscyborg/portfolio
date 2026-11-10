@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { isLocale } from "@/config/site";
 import { getDictionary } from "@/i18n";
@@ -8,7 +9,8 @@ import { ImprintContent } from "@/components/legal/LegalContent";
 export async function generateMetadata({ params }: PageProps<"/[lang]/impressum">): Promise<Metadata> {
   const { lang } = await params;
   if (!isLocale(lang)) return {};
-  return { title: getDictionary(lang).legal.imprintTitle, robots: { index: false } };
+  const title = getDictionary(lang).legal.imprintTitle;
+  return { ...pageMetadata(lang, "/impressum/", { title, description: title }), robots: { index: false } };
 }
 
 export default async function ImprintPage({ params }: PageProps<"/[lang]/impressum">) {

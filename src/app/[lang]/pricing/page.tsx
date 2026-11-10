@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { isLocale, site } from "@/config/site";
 import { getDictionary } from "@/i18n";
@@ -12,7 +13,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/pricing">)
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const t = getDictionary(lang).pricing;
-  return { title: t.pageTitle, description: t.pageLead };
+  return pageMetadata(lang, "/pricing/", { title: t.pageTitle, description: t.pageLead });
 }
 
 export default async function PricingPage({ params }: PageProps<"/[lang]/pricing">) {
