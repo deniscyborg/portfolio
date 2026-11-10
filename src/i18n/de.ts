@@ -83,9 +83,9 @@ export const de: Dictionary = {
 
   work: {
     title: "projekte",
-    lead: "Ausgewählte Projekte. Kundenprojekte unterliegen einer NDA und werden ohne vertrauliche Details beschrieben — das Open-Source-Demoprojekt zeigt, wie ich arbeite.",
+    lead: "Ausgewählte Projekte. Kundenprojekte werden ohne vertrauliche Details beschrieben — das Open-Source-Demoprojekt zeigt, wie ich arbeite.",
     openSource: "open source",
-    nda: "unter NDA",
+    nda: "Kundenprojekt",
     items: [
       {
         id: "usermanagement",
@@ -94,6 +94,22 @@ export const de: Dictionary = {
         text: "Full-Stack-Anwendung (React + ASP.NET Core 10) mit einem C#-Testframework: 31 parallel laufende API- und UI-Tests, CI ohne unterdrückte Fehler in GitHub Actions, Allure-Report mit Verlauf, Deployment nur bei grünen Tests.",
         tags: ["C#", "Playwright", "NUnit", "Allure", "GitHub Actions", "Docker"],
         open: true,
+      },
+      {
+        id: "kommunikant",
+        title: "Testautomatisierung für ein Berliner Trainingsunternehmen",
+        context: "Kommunikant Berlin GmbH · seit Juni 2025",
+        text: "Automatisierte UI- und API-Tests mit Einbindung in CI/CD, Testdokumentation sowie laufender IT-Support für das Team.",
+        tags: ["UI-Tests", "API-Tests", "CI/CD", "Testdokumentation"],
+        open: false,
+      },
+      {
+        id: "lexlabs",
+        title: "IT-Infrastruktur für eine Tech-Akademie",
+        context: "Lex Labs UG · Deutsche Tech Akademie · seit Juni 2025",
+        text: "Systemadministration und IT-Support: Betreuung interner Werkzeuge und Infrastruktur sowie Unterstützung der Mitarbeitenden bei technischen Fragen im Alltag.",
+        tags: ["Systemadministration", "IT-Support", "Infrastruktur"],
+        open: false,
       },
       {
         id: "platform",
@@ -150,7 +166,7 @@ export const de: Dictionary = {
       {
         period: "März 2024 — heute",
         role: "Freelance SDET / QA Automation Infrastructure Engineer",
-        company: "Selbstständig · Berlin",
+        company: "Selbstständig · Berlin · Kommunikant Berlin GmbH, Lex Labs UG",
         text: "Produktionsreife Testautomatisierung und Infrastruktur für Entwicklungsteams: Python und C#, Playwright und Appium, Docker, CI/CD.",
       },
       {

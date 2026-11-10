@@ -81,9 +81,9 @@ export const en = {
 
   work: {
     title: "work",
-    lead: "Selected projects. Client work is under NDA and described without confidential details — the open-source demo shows how I build things.",
+    lead: "Selected projects. Client work is described without confidential details — the open-source demo shows how I build things.",
     openSource: "open source",
-    nda: "under NDA",
+    nda: "client project",
     items: [
       {
         id: "usermanagement",
@@ -92,6 +92,22 @@ export const en = {
         text: "Full-stack app (React + ASP.NET Core 10) with a C# test framework: 31 API and UI tests running in parallel, CI with no suppressed failures in GitHub Actions, Allure report with history, deployment only on green.",
         tags: ["C#", "Playwright", "NUnit", "Allure", "GitHub Actions", "Docker"],
         open: true,
+      },
+      {
+        id: "kommunikant",
+        title: "Test automation for a Berlin training company",
+        context: "Kommunikant Berlin GmbH · since Jun 2025",
+        text: "UI and API test automation integrated into CI/CD, test documentation, plus ongoing IT support for the team.",
+        tags: ["UI tests", "API tests", "CI/CD", "Test documentation"],
+        open: false,
+      },
+      {
+        id: "lexlabs",
+        title: "IT infrastructure for a tech academy",
+        context: "Lex Labs UG · Deutsche Tech Akademie · since Jun 2025",
+        text: "System administration and IT support: maintaining internal tools and infrastructure and helping staff with day-to-day technical issues.",
+        tags: ["System administration", "IT support", "Infrastructure"],
+        open: false,
       },
       {
         id: "platform",
@@ -148,7 +164,7 @@ export const en = {
       {
         period: "Mar 2024 — now",
         role: "Freelance SDET / QA Automation Infrastructure Engineer",
-        company: "Self-employed · Berlin",
+        company: "Self-employed · Berlin · Kommunikant Berlin GmbH, Lex Labs UG",
         text: "Production-ready test automation and infrastructure for engineering teams: Python and C#, Playwright and Appium, Docker, CI/CD.",
       },
       {
