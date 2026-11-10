@@ -104,7 +104,7 @@ export const en = {
       {
         id: "desktop",
         title: "Cross-platform desktop product",
-        context: "Software vendor · Windows & Astra Linux",
+        context: "Software vendor Impuls-Plus · Windows & Astra Linux",
         text: "End-to-end automation of a desktop server application on Windows and Astra Linux across its whole lifecycle: installation, registration, licensing, daily use and removal. Appium with WinAppDriver and Linux AT-SPI, Playwright for the web part — 160+ tests triggered by every product build.",
         tags: ["C#", "Appium", "WinAppDriver", "AT-SPI", "Playwright", "GitLab CI"],
         open: false,

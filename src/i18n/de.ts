@@ -106,7 +106,7 @@ export const de: Dictionary = {
       {
         id: "desktop",
         title: "Plattformübergreifendes Desktop-Produkt",
-        context: "Softwarehersteller · Windows & Astra Linux",
+        context: "Softwarehersteller Impuls-Plus · Windows & Astra Linux",
         text: "End-to-End-Automatisierung einer Desktop-Serveranwendung unter Windows und Astra Linux über den gesamten Lebenszyklus: Installation, Registrierung, Lizenzierung, täglicher Betrieb und Deinstallation. Appium mit WinAppDriver und Linux AT-SPI, Playwright für den Webteil — über 160 Tests, ausgeführt bei jedem Produkt-Build.",
         tags: ["C#", "Appium", "WinAppDriver", "AT-SPI", "Playwright", "GitLab CI"],
         open: false,
