@@ -104,9 +104,9 @@ export function Contact({ dict }: { dict: Dictionary }) {
             widths={[480, 960]}
             sizes="240px"
             width={960}
-            height={1412}
+            height={1333}
             alt={t.photoAlt}
-            className="absolute inset-0 h-full w-full object-cover grayscale transition duration-300 hover:grayscale-0"
+            className="absolute inset-0 h-full w-full object-cover object-[50%_25%] grayscale transition duration-300 hover:grayscale-0"
           />
           <div className="pointer-events-none absolute inset-0 bg-phosphor/15 mix-blend-color" />
         </div>
