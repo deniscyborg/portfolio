@@ -57,7 +57,7 @@ jobs:
     name: Deploy to VPS
     needs: build-and-test
     # Деплой включается, когда задана переменная SITE_DOMAIN (после покупки домена)
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.SITE_DOMAIN != ''
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && vars.SITE_DOMAIN != ''
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
