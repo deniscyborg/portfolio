@@ -1,6 +1,7 @@
 import type { Dictionary } from "@/i18n";
 import { Photo } from "@/components/Photo";
 import { Section } from "@/components/Section";
+import { VhsPortrait } from "@/components/home/VhsPortrait";
 
 /** «Обо мне»: короткий текст в стиле терминала, портрет и три карточки «вне работы» */
 export function About({ dict }: { dict: Dictionary }) {
@@ -9,18 +10,7 @@ export function About({ dict }: { dict: Dictionary }) {
     <Section id="about" index="05" title={t.title} lead={t.lead}>
       <div className="grid gap-10 lg:grid-cols-[280px_1fr]">
         <figure className="bracket relative self-start overflow-hidden rounded-md border border-line-strong">
-          <div className="scanlines relative">
-            <Photo
-              name="portrait"
-              widths={[480, 960]}
-              sizes="280px"
-              width={960}
-              height={960}
-              alt={t.portraitAlt}
-              className="w-full grayscale"
-            />
-            <div className="absolute inset-0 bg-phosphor/15 mix-blend-color" />
-          </div>
+          <VhsPortrait alt={t.portraitAlt} />
         </figure>
 
         <div>
