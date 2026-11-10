@@ -30,4 +30,5 @@ else
 fi
 
 echo "Заголовок страницы:"
-curl -sI https://davydovdenis.de/en/ | grep -i '^cache-control' || echo "Cache-Control не найден — проверьте конфиг вручную"
+# Запрос идёт на сам сервер: обращение к своему внешнему адресу изнутри VPS может не проходить
+curl -sI --resolve davydovdenis.de:443:127.0.0.1 https://davydovdenis.de/en/ | grep -i '^cache-control' || echo "Cache-Control не найден — проверьте конфиг вручную"
