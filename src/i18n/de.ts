@@ -199,7 +199,7 @@ export const de: Dictionary = {
     ],
     cards: [
       { image: "about-berlin", caption: "berlin, zuhause seit 2023", alt: "Berliner Fernsehturm hinter dem S-Bahn-Schild Oranienburger Straße" },
-      { image: "about-dog", caption: "wochenenden mit meinem zwergspitz", alt: "Denis mit seinem Zwergspitz im Park" },
+      { image: "about-dog", caption: "wochenenden mit meinem zwergspitz", alt: "Denis' Zwergspitz liegt im Gras" },
       { image: "about-elbrus", caption: "elbrus, 2022", alt: "Denis in den Bergen am Elbrus" },
     ],
   },

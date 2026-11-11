@@ -197,7 +197,7 @@ export const en = {
     ],
     cards: [
       { image: "about-berlin", caption: "berlin, home since 2023", alt: "Berlin TV tower behind the S-Bahn sign Oranienburger Straße" },
-      { image: "about-dog", caption: "weekends with my pomeranian", alt: "Denis with his Pomeranian in a park" },
+      { image: "about-dog", caption: "weekends with my pomeranian", alt: "Denis's Pomeranian lying on the grass" },
       { image: "about-elbrus", caption: "elbrus, 2022", alt: "Denis in the mountains near Elbrus" },
     ],
   },
