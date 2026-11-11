@@ -187,7 +187,7 @@ export const de: Dictionary = {
     portraitAlt: "Porträt von Denis Davydov",
     lines: [
       "Seit 2023 in Berlin · Staatliche Technische Universität Moskau „N. E. Bauman“, Softwareentwicklung (2021)",
-      "Ich finde Fehler gern, bevor es die Nutzer tun — und baue die Werkzeuge, die das wiederholbar machen.",
+      "Meine Tests decken Lücken und Fehler auf, bevor Ihre Nutzer darauf stoßen — und die Werkzeuge, die ich baue, wiederholen diese Prüfungen bei jedem Release.",
       "Sprachen: Russisch (Muttersprache), Englisch, Deutsch.",
       "Abseits des Bildschirms: Berge und mein Zwergspitz.",
     ],
@@ -308,6 +308,7 @@ export const de: Dictionary = {
     telegram: "Telegram",
     location: "Berlin, Deutschland",
     photoAlt: "Zwei rote Löschwassereinspeisungen an einer Berliner Hauswand",
+    photoCaption: "Bereit, lange bevor es brennt. Automatisierte Tests genauso — keine Feuerwehreinsätze in Produktion.",
   },
   blog: {
     title: "blog",

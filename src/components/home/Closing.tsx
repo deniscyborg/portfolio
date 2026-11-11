@@ -109,6 +109,9 @@ export function Contact({ dict }: { dict: Dictionary }) {
             className="absolute inset-0 h-full w-full object-cover object-[50%_25%] grayscale transition duration-300 hover:grayscale-0"
           />
           <div className="pointer-events-none absolute inset-0 bg-phosphor/15 mix-blend-color" />
+          <p className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-bg via-bg/80 to-transparent p-4 pt-14 font-mono text-[0.7rem] leading-relaxed text-dim">
+            <span className="text-amber">no_fires_in_prod:</span> {t.photoCaption}
+          </p>
         </div>
       </div>
     </Section>

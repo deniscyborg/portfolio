@@ -185,7 +185,7 @@ export const en = {
     portraitAlt: "Portrait of Denis Davydov",
     lines: [
       "In Berlin since 2023 · Bauman Moscow State Technical University, software engineering (2021)",
-      "I like breaking things before users do — and building the tooling that makes that repeatable.",
+      "My tests uncover gaps and defects before your users run into them — and the tooling I build repeats those checks on every release.",
       "Languages: Russian (native), English, German.",
       "Off-screen: mountains and my Pomeranian.",
     ],
@@ -306,6 +306,7 @@ export const en = {
     telegram: "Telegram",
     location: "Berlin, Germany",
     photoAlt: "Two red fire brigade standpipes on a Berlin house wall",
+    photoCaption: "Ready long before anything burns. Automated tests do the same — no firefighting in production.",
   },
   blog: {
     title: "blog",
