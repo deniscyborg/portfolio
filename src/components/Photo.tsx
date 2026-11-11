@@ -1,5 +1,5 @@
 type Props = {
-  /** Базовое имя файла в public/images, например "quality-gate" */
+  /** Base file name in public/images, e.g. "quality-gate" */
   name: string;
   widths: number[];
   alt: string;
@@ -11,15 +11,15 @@ type Props = {
 };
 
 /**
- * Фото с заранее подготовленными размерами (WebP, без EXIF).
- * next/image при статическом экспорте не генерирует srcset, поэтому собираем его сами.
+ * Photo with pre-generated sizes (WebP, no EXIF).
+ * next/image does not generate srcset in a static export, so we build it ourselves.
  */
 export function Photo({ name, widths, alt, sizes, width, height, className, priority }: Props) {
   const srcSet = widths.map((w) => `/images/${name}-${w}.webp ${w}w`).join(", ");
   const fallback = `/images/${name}-${widths[widths.length - 1]}.webp`;
 
   return (
-    // eslint-disable-next-line @next/next/no-img-element -- srcset собирается вручную, см. комментарий выше
+    // eslint-disable-next-line @next/next/no-img-element -- srcset is built manually, see the comment above
     <img
       src={fallback}
       srcSet={srcSet}

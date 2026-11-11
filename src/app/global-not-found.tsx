@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-// Язык посетителя на этапе 404 неизвестен, поэтому показываем обе версии
+// The visitor's language is unknown on a 404, so both versions are shown
 export default function GlobalNotFound() {
   return (
     <html lang="en" className={fontVariables}>

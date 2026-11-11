@@ -1,6 +1,6 @@
 import Link from "next/link";
-// "/" при статическом экспорте не может сделать серверный редирект:
-// выбираем язык по настройкам браузера, без JS срабатывает meta refresh на английскую версию.
+// "/" cannot redirect on the server in a static export:
+// pick the language from browser settings; without JS a meta refresh goes to the English version.
 const detectLanguage = `
   var lang = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
   location.replace(lang.toLowerCase().indexOf("de") === 0 ? "/de/" : "/en/");

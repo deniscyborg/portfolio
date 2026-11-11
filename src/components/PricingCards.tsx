@@ -9,7 +9,7 @@ function isPlanId(id: string): id is PlanId {
 }
 
 function priceLabel(id: string, locale: Locale, t: Dictionary["pricing"]) {
-  // id тарифа в словаре обязан совпадать с ключом в site.prices
+  // The plan id in the dictionary must match a key in site.prices
   if (!isPlanId(id)) throw new Error(`Unknown pricing plan "${id}"`);
   const value = site.prices[id];
   if (value === null) return { main: t.onRequest, prefix: "", suffix: "" };
@@ -23,7 +23,7 @@ function priceLabel(id: string, locale: Locale, t: Dictionary["pricing"]) {
 type Props = {
   locale: Locale;
   dict: Dictionary;
-  /** На главной показываем по 3 пункта, на странице цен — всё */
+  /** Home page shows 3 items per plan, the pricing page shows all */
   compact?: boolean;
 };
 

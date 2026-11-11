@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   robots: { index: false },
 };
 
-/** Отдельный корневой layout только для страницы-редиректа с "/" */
+/** Separate root layout used only by the "/" redirect page */
 export default function RootRedirectLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={fontVariables}>

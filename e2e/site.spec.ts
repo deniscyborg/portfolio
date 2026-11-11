@@ -2,7 +2,7 @@ import { expect, test, type Page } from "@playwright/test";
 
 const LOCALES = ["en", "de"] as const;
 
-/** Собирает ошибки страницы и консоли, чтобы падать на любой из них */
+/** Collects page and console errors so the test fails on any of them */
 function trackErrors(page: Page) {
   const errors: string[] = [];
   page.on("pageerror", (e) => errors.push(e.message));

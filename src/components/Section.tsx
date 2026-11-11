@@ -9,7 +9,7 @@ type Props = {
   className?: string;
 };
 
-/** Раздел с заголовком в стиле «01 / services» */
+/** Section with a "01 / services" style heading */
 export function Section({ id, index, title, lead, children, className = "" }: Props) {
   return (
     <section id={id} className={`mx-auto max-w-6xl px-4 pt-24 sm:px-6 ${className}`} aria-labelledby={id ? `${id}-title` : undefined}>

@@ -16,7 +16,7 @@ export default defineConfig({
     { name: "desktop", use: { ...devices["Desktop Chrome"] } },
     { name: "mobile", use: { ...devices["Pixel 7"] } },
   ],
-  // Тестируем ровно то, что уедет на сервер: собранную папку out/
+  // Test exactly what gets deployed: the built out/ folder
   webServer: {
     command: `npx --yes serve@14.2.4 out -l ${PORT} --no-clipboard`,
     url: `http://localhost:${PORT}/en/`,

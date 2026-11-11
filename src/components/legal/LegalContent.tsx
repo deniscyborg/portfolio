@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 import { site, type Locale } from "@/config/site";
 
 /**
- * Тексты Impressum и Datenschutzerklärung.
- * Немецкая версия — основная; английская — перевод для удобства.
+ * Impressum and privacy policy (Datenschutzerklärung) texts.
+ * The German version is authoritative; the English one is a convenience translation.
  */
 
 function H({ children }: { children: ReactNode }) {

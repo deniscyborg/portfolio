@@ -4,7 +4,7 @@ import { getPosts } from "@/lib/blog";
 
 export const dynamic = "force-static";
 
-/** Карта сайта для поисковиков: каждая страница с её языковыми версиями (hreflang) */
+/** Sitemap for search engines: every page with its language versions (hreflang) */
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = ["/", "/pricing/", "/blog/", ...getPosts("en").map((p) => `/blog/${p.slug}/`)];
 

@@ -33,11 +33,11 @@ function readPost(locale: Locale, file: string): Post {
     locale,
     title: String(data.title),
     description: String(data.description),
-    // gray-matter превращает YYYY-MM-DD в Date — приводим к строке
+    // gray-matter turns YYYY-MM-DD into a Date — convert back to a string
     date: new Date(data.date).toISOString().slice(0, 10),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
     readingMinutes: Math.max(1, Math.round(words / WORDS_PER_MINUTE)),
-    // Статьи — наш собственный контент из репозитория, поэтому HTML не санитизируется
+    // Posts are our own content from the repo, so the HTML is not sanitised
     html: marked.parse(content, { async: false }),
   };
 }
@@ -50,7 +50,7 @@ export function getPosts(locale: Locale): PostMeta[] {
     .readdirSync(dir)
     .filter((file) => file.endsWith(".md"))
     .map((file) => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars -- в списке тело статьи не нужно
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars -- the list does not need the post body
       const { html, ...meta } = readPost(locale, file);
       return meta;
     })

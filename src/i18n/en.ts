@@ -336,5 +336,5 @@ export const en = {
   },
 };
 
-/** Структура словаря: немецкая версия обязана повторять её полностью. */
+/** Dictionary shape: the German version must mirror it completely. */
 export type Dictionary = typeof en;

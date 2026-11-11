@@ -18,7 +18,7 @@ export function formatDate(iso: string, locale: Locale): string {
   }).format(new Date(iso));
 }
 
-/** Путь страницы с учётом языка: localePath("de", "/blog/") -> "/de/blog/" */
+/** Page path with the language prefix: localePath("de", "/blog/") -> "/de/blog/" */
 export function localePath(locale: Locale, path = "/"): string {
   return `/${locale}${path.startsWith("/") ? path : `/${path}`}`;
 }

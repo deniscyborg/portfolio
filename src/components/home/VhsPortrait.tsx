@@ -6,7 +6,7 @@ import { Photo } from "@/components/Photo";
 const FPS = 30;
 const SLICES = 3;
 const NOISE_SIZE = 96;
-/** Сколько помех в серии: каждая следующая сильнее, после серии — спокойная пауза и всё сначала */
+/** Glitches per series: each one stronger than the last, then a calm pause and it starts over */
 const EVENTS_PER_SERIES = 6;
 
 const photoProps = { name: "portrait", widths: [480, 960], sizes: "280px", width: 960, height: 960 };
@@ -15,23 +15,23 @@ const rand = (min: number, max: number) => min + Math.random() * (max - min);
 const pick = <T,>(items: T[]): T => items[Math.floor(Math.random() * items.length)];
 
 type Kind = "tracking" | "tear" | "chroma" | "snow" | "roll" | "freeze" | "dropout";
-/** seed — случайные параметры, выбранные в начале помехи (для «застревания» и дефекта края они не меняются) */
+/** seed: random parameters picked when a glitch starts (fixed for freeze and the edge defect) */
 type Glitch = { kind: Kind; start: number; duration: number; level: number; seed: number[] };
 
 const DURATION: Record<Kind, [number, number]> = {
-  tracking: [1400, 2000], // полоса медленно проходит сверху вниз
-  tear: [350, 700], // кадр «рвёт» полосами вбок
-  chroma: [600, 1000], // цвета расходятся и сходятся
-  snow: [250, 500], // короткая вспышка «снега»
-  roll: [300, 500], // кадр подпрыгивает по вертикали
-  freeze: [700, 1300], // кадр «застревает» сдвинутым
-  dropout: [1100, 1700], // сигнал пропадает и возвращается с дефектом по краю
+  tracking: [1400, 2000], // a band slowly rolls from top to bottom
+  tear: [350, 700], // the frame tears sideways in strips
+  chroma: [600, 1000], // colours split apart and rejoin
+  snow: [250, 500], // a short burst of snow
+  roll: [300, 500], // the frame jumps vertically
+  freeze: [700, 1300], // the frame freezes while shifted
+  dropout: [1100, 1700], // the signal drops out and returns with an edge defect
 };
 
 /**
- * Портрет с аналоговыми помехами (VHS / ТВ): отдельные помехи по очереди — полоса трекинга, разрыв кадра,
- * расхождение цветов, «снег», подскок кадра. В серии каждая следующая сильнее, затем пауза.
- * Анимация идёт, только пока портрет виден; при prefers-reduced-motion — обычное фото.
+ * Portrait with analogue interference (VHS / TV): separate glitches one after another — tracking band, frame tear,
+ * colour split, snow, frame jump. Within a series each is stronger than the last, then a pause.
+ * Animates only while visible; with prefers-reduced-motion it is a plain photo.
  */
 export function VhsPortrait({ alt }: { alt: string }) {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -59,22 +59,22 @@ export function VhsPortrait({ alt }: { alt: string }) {
     let index = 0;
 
     const schedule = (now: number) => {
-      // После серии — длинная спокойная пауза, внутри серии — 1,5–4 с между помехами
+      // Long calm pause after a series, 1.5–4 s between glitches within one
       const calm = index === 0 ? rand(2500, 4000) : rand(1500, 4000);
       nextAt = now + calm;
     };
 
     let lastKind: Kind | null = null;
     const startGlitch = (now: number) => {
-      // Каждая следующая чуть сильнее предыдущей, с небольшим случайным разбросом
+      // Each one slightly stronger than the previous, with a little random spread
       const level = Math.min(1, 0.3 + (0.7 * index) / (EVENTS_PER_SERIES - 1) + rand(-0.08, 0.08));
-      // Тяжёлые помехи — ближе к концу серии; один и тот же вид подряд не повторяется
+      // Heavy glitches come late in the series; the same kind never repeats twice in a row
       const kinds: Kind[] = (index < 2 ? ["tracking", "chroma", "tear", "roll"] : ["tracking", "tear", "chroma", "snow", "roll", "freeze", "dropout"]).filter((k) => k !== lastKind) as Kind[];
       const kind = pick(kinds);
       lastKind = kind;
       const [min, max] = DURATION[kind];
       current = { kind, start: now, duration: rand(min, max), level, seed: Array.from({ length: 6 }, Math.random) };
-      if (kind === "freeze") drawNoise(20 + 35 * level); // застывший «снег» рисуется один раз
+      if (kind === "freeze") drawNoise(20 + 35 * level); // frozen snow is drawn once
       index = (index + 1) % EVENTS_PER_SERIES;
     };
 
@@ -105,11 +105,11 @@ export function VhsPortrait({ alt }: { alt: string }) {
     };
 
     const render = (g: Glitch, p: number) => {
-      // p — прогресс помехи 0..1; env — плавно вверх и вниз, чтобы помеха «приходила» и «уходила»
+      // p: glitch progress 0..1; env: smooth ramp up and down so the glitch fades in and out
       const env = Math.sin(Math.PI * p);
       const L = g.level;
       const [s0, s1, s2, s3] = g.seed;
-      // У «застревания» кадр не перерисовывается — держим застывший шум
+      // Freeze does not redraw the frame — keep the frozen noise
       if (g.kind !== "freeze") reset();
 
       switch (g.kind) {
@@ -117,7 +117,7 @@ export function VhsPortrait({ alt }: { alt: string }) {
           const band = bandRef.current!;
           band.style.opacity = String(0.35 + 0.35 * L);
           band.style.top = `${-15 + p * 125}%`;
-          // Рядом с полосой кадр слегка сдвигается
+          // The frame shifts slightly next to the band
           const near = sliceRefs.current[0]!;
           const top = Math.max(0, -15 + p * 125);
           near.style.opacity = "1";
@@ -130,7 +130,7 @@ export function VhsPortrait({ alt }: { alt: string }) {
           const count = L > 0.6 ? SLICES : 2;
           for (let i = 0; i < count; i++) {
             const el = sliceRefs.current[i]!;
-            if (Math.random() < 0.35) continue; // полосы мерцают, а не стоят
+            if (Math.random() < 0.35) continue; // strips flicker instead of standing still
             const top = rand(5, 90);
             const h = rand(3, 6 + 10 * L);
             el.style.opacity = "1";
@@ -155,7 +155,7 @@ export function VhsPortrait({ alt }: { alt: string }) {
           break;
         }
         case "freeze": {
-          // Кадр застрял: сдвиг и сорванная полоса стоят на месте, в конце — рывок и отпускание
+          // Frame is stuck: shift and torn strip hold still, then a jerk and release at the end
           const release = p > 0.85;
           baseRef.current!.style.transform = release ? `translateX(${(rand(-1, 1) * 6 * L).toFixed(1)}px)` : `translate(${((s0 - 0.5) * 16 * L).toFixed(1)}px, ${((s1 - 0.5) * 4 * L).toFixed(1)}%)`;
           const el = sliceRefs.current[0]!;
@@ -171,17 +171,17 @@ export function VhsPortrait({ alt }: { alt: string }) {
         case "dropout": {
           const black = blackRef.current!;
           if (p < 0.15) {
-            // Картинка схлопывается по вертикали и темнеет
+            // The picture collapses vertically and darkens
             const q = p / 0.15;
             baseRef.current!.style.transform = `scaleY(${(1 - 0.85 * q).toFixed(2)})`;
             root.style.filter = `brightness(${1 + q * 0.6})`;
             black.style.opacity = String(q * 0.6);
           } else if (p < 0.5) {
-            // Сигнала нет: тёмный экран и слабый «снег»
+            // No signal: dark screen and faint snow
             black.style.opacity = "0.92";
             drawNoise(45 + 60 * L);
           } else {
-            // Сигнал вернулся с дефектом по краю: полоса у левого или правого края сдвинута и рябит
+            // Signal is back with an edge defect: a strip at the left or right edge is shifted and jitters
             const q = (p - 0.5) / 0.5;
             const fade = 1 - q;
             black.style.opacity = String(Math.max(0, 0.5 - q * 2));
@@ -263,7 +263,7 @@ export function VhsPortrait({ alt }: { alt: string }) {
         <Photo {...photoProps} alt={alt} className="w-full grayscale" />
       </div>
 
-      {/* Цветовые «тени» — красная и голубая, расходятся при помехе */}
+      {/* Colour ghosts, red and cyan, split apart during a glitch */}
       <div ref={redRef} aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-0 mix-blend-screen">
         <Photo {...photoProps} alt="" className="w-full [filter:grayscale(1)_sepia(1)_saturate(6)_hue-rotate(-50deg)_brightness(0.8)]" />
       </div>
@@ -271,7 +271,7 @@ export function VhsPortrait({ alt }: { alt: string }) {
         <Photo {...photoProps} alt="" className="w-full [filter:grayscale(1)_sepia(1)_saturate(6)_hue-rotate(140deg)_brightness(0.8)]" />
       </div>
 
-      {/* Рваные полосы: копии кадра, обрезанные по высоте и сдвинутые вбок */}
+      {/* Torn strips: copies of the frame clipped vertically and shifted sideways */}
       {Array.from({ length: SLICES }, (_, i) => (
         <div
           key={i}

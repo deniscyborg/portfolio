@@ -35,7 +35,7 @@ export default async function PostPage({ params }: PageProps<"/[lang]/blog/[slug
   const post = getPost(lang, slug);
   if (!post) notFound();
   const dict = getDictionary(lang);
-  // Переводы статьи лежат под тем же slug; если перевода нет — переключатель ведёт в список
+  // Translations share the same slug; without a translation the switcher links to the post list
   const other = lang === "en" ? "de" : "en";
   const switchPath = getPost(other, slug) ? `/blog/${slug}/` : "/blog/";
 

@@ -6,7 +6,7 @@ import { localePath } from "@/lib/format";
 type Props = {
   locale: Locale;
   dict: Dictionary;
-  /** Путь текущей страницы без префикса языка — для переключателя EN/DE */
+  /** Current page path without the language prefix — for the EN/DE switcher */
   path?: string;
 };
 
@@ -30,7 +30,7 @@ export function SiteHeader({ locale, dict, path = "/" }: Props) {
           <span className="text-phosphor">~/</span>davydov<span className="cursor !h-[0.95em] !w-[0.5em]" aria-hidden="true" />
         </Link>
 
-        {/* Горизонтальное меню; на телефоне — отдельной строкой с прокруткой и затуханием у края */}
+        {/* Horizontal menu; on phones a separate scrollable row with a fade at the edge */}
         <nav
           aria-label="Main"
           className="order-last -mx-2 w-full overflow-x-auto [mask-image:linear-gradient(to_right,black_85%,transparent)] [scrollbar-width:none] sm:order-none sm:w-auto sm:flex-1 sm:[mask-image:none]"

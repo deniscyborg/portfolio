@@ -14,7 +14,7 @@ type Props = {
   children: ReactNode;
 };
 
-/** Каркас юридических страниц: шапка, заголовок, текст, ссылка назад. */
+/** Layout for legal pages: header, title, text, back link. */
 export function LegalPage({ locale, dict, title, path, children }: Props) {
   return (
     <>

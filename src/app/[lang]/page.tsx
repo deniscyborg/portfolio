@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]">): Promis
   const { lang } = await params;
   if (!isLocale(lang)) return {};
   const { meta } = getDictionary(lang);
-  // title не задаём: у главной он берётся из layout без шаблона «· Denis Davydov»
+  // No title here: the home page takes it from the layout without the "· Denis Davydov" template
   return pageMetadata(lang, "/", { description: meta.description, ogTitle: meta.title });
 }
 
@@ -26,7 +26,7 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
   if (!isLocale(lang)) notFound();
   const dict = getDictionary(lang);
 
-  // Структурированные данные: поисковик понимает, что это услуги по автоматизации тестирования из Берлина
+  // Structured data: tells search engines this is a test automation service based in Berlin
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",

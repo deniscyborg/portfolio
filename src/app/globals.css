@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Терминальная тема: «фосфорный» зелёный на почти чёрном, янтарь для акцентов */
+/* Terminal theme: phosphor green on near-black, amber for accents */
 @theme {
   --color-bg: #070b09;
   --color-panel: #0c1210;
@@ -42,7 +42,7 @@
 }
 
 @layer components {
-  /* Едва заметные сканлайны поверх фото — отсылка к ЭЛТ-мониторам */
+  /* Subtle scanlines over photos, a nod to CRT monitors */
   .scanlines::after {
     content: "";
     position: absolute;
@@ -51,7 +51,7 @@
     background: repeating-linear-gradient(to bottom, rgb(0 0 0 / 0.22) 0 1px, transparent 1px 3px);
   }
 
-  /* Уголки-скобки у карточек */
+  /* Bracket corners on cards */
   .bracket {
     position: relative;
   }
@@ -87,7 +87,7 @@
     animation: blink 1.1s steps(1) infinite;
   }
 
-  /* Строки терминала появляются по очереди */
+  /* Terminal lines appear one after another */
   .type-line {
     opacity: 0;
     animation: reveal 0.01s forwards;
@@ -98,7 +98,7 @@
     text-shadow: 0 0 12px rgb(61 255 154 / 0.35);
   }
 
-  /* Типографика статей блога */
+  /* Blog post typography */
   .prose-terminal {
     @apply text-[1.05rem] leading-8 text-ink;
   }
@@ -159,7 +159,7 @@
   }
   .prose-terminal table {
     @apply my-6 w-full border-collapse text-sm;
-    /* Широкая таблица прокручивается внутри себя и не растягивает страницу на телефоне */
+    /* Wide tables scroll inside themselves instead of stretching the page on phones */
     display: block;
     max-width: 100%;
     overflow-x: auto;

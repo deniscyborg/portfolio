@@ -1,9 +1,9 @@
-// Next.js 16 при статическом экспорте кладёт данные сегментов во вложенные папки
+// With static export Next.js 16 writes segment data into nested folders
 //   out/en/pricing/__next.$d$lang/pricing/__PAGE__.txt
-// а клиентский роутер запрашивает их по плоскому имени
+// while the client router requests them by a flat name
 //   out/en/pricing/__next.$d$lang.pricing.__PAGE__.txt
-// Без плоских копий каждая предзагрузка ссылки даёт 404 в консоли.
-// Скрипт создаёт копии рядом, исходные файлы не трогает.
+// Without flat copies every link prefetch logs a 404 in the console.
+// The script creates copies alongside and leaves the originals untouched.
 import fs from "node:fs";
 import path from "node:path";
 

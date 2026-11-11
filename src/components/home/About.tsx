@@ -3,7 +3,7 @@ import { Photo } from "@/components/Photo";
 import { Section } from "@/components/Section";
 import { VhsPortrait } from "@/components/home/VhsPortrait";
 
-/** Текстовый блок в стиле терминала: команда и строки вывода */
+/** Terminal-style text block: a command and its output lines */
 function Terminal({ command, lines, className = "" }: { command: string; lines: string[]; className?: string }) {
   return (
     <pre
@@ -20,7 +20,7 @@ function Terminal({ command, lines, className = "" }: { command: string; lines: 
   );
 }
 
-/** «Обо мне»: портрет и текст, ниже — интересы и три карточки «вне работы» */
+/** About: portrait and text, below them interests and three off-screen photo cards */
 export function About({ dict }: { dict: Dictionary }) {
   const t = dict.about;
   return (

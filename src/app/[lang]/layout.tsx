@@ -6,7 +6,7 @@ import { fontVariables } from "@/lib/fonts";
 import { ogImage } from "@/lib/seo";
 import "../globals.css";
 
-// Только /en и /de; любые другие префиксы — 404 на этапе сборки
+// Only /en and /de; any other prefix is a 404 at build time
 export const dynamicParams = false;
 
 export function generateStaticParams() {

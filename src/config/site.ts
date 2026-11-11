@@ -1,8 +1,8 @@
 /**
- * Всё, что меняется без правки вёрстки: домен, ссылки, контакты, цены.
+ * Everything that changes without touching the layout: domain, links, contacts, prices.
  */
 export const site = {
-  /** Задаётся при сборке: NEXT_PUBLIC_SITE_URL=https://davydovden.com */
+  /** Set at build time: NEXT_PUBLIC_SITE_URL=https://davydovden.com */
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://davydovdenis.de",
   name: "Denis Davydov",
 
@@ -15,34 +15,34 @@ export const site = {
     demoRepo: "https://github.com/deniscyborg/UserManagementAppTests",
   },
 
-  /** Личная почта на новом домене. null — блок с почтой не показывается. */
+  /** Contact email on the site's domain. null hides the email block. */
   email: "info@davydovdenis.de" as string | null,
 
   telegram: { handle: "@Dcyborg", url: "https://t.me/Dcyborg" } as { handle: string; url: string } | null,
 
-  /** Телефон показывается на сайте (контакты, Impressum); в README на GitHub не публикуется */
+  /** Phone is shown on the site (contacts, Impressum); not published in the GitHub README */
   phone: { display: "+49 176 76343858", tel: "+4917676343858" } as { display: string; tel: string } | null,
 
-  /** Ladungsfähige Anschrift для Impressum (§ 5 DDG) */
+  /** Ladungsfähige Anschrift for the Impressum (§ 5 DDG) */
   address: { street: "Karl-Stieler-Str. 18", zip: "12167", city: "Berlin", country: { en: "Germany", de: "Deutschland" } },
 
-  /** USt-IdNr — показывается в Impressum */
+  /** USt-IdNr, shown in the Impressum */
   vatId: "DE459105802",
 
   /**
-   * true — Kleinunternehmer по §19 UStG: НДС не начисляется, на сайте другая сноска.
-   * TODO: уточнить статус ИП.
+   * true: Kleinunternehmer under §19 UStG — no VAT charged, the site shows a different note.
+   * TODO: confirm the business status.
    */
   smallBusiness: true, // Kleinunternehmer gem. § 19 UStG
 
   /**
-   * Цены в евро без НДС. null — показывается «по запросу».
-   * TODO: заполнить перед публикацией.
+   * Prices in EUR excluding VAT. null shows "on request".
+   * TODO: fill in.
    */
   prices: {
-    audit: null as number | null, // фикс за аудит
-    framework: null as number | null, // «от» за фреймворк с нуля
-    hourly: null as number | null, // ставка в час
+    audit: null as number | null, // fixed price for the audit
+    framework: null as number | null, // "from" price for a framework from scratch
+    hourly: null as number | null, // hourly rate
   },
 } as const;
 

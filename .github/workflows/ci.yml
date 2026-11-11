@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      # Домен задаётся переменной репозитория SITE_URL (Settings → Variables)
+      # Domain comes from the repository variable SITE_URL (Settings → Variables)
       NEXT_PUBLIC_SITE_URL: ${{ vars.SITE_URL }}
 
     steps:
@@ -56,7 +56,7 @@ jobs:
   deploy:
     name: Deploy to VPS
     needs: build-and-test
-    # Деплой включается, когда задана переменная SITE_DOMAIN (после покупки домена)
+    # Deploy runs once the SITE_DOMAIN variable is set
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && vars.SITE_DOMAIN != ''
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -97,9 +97,9 @@ jobs:
           script: |
             set -e
             cd /var/www
-            # Подмена каталога целиком: посетители не видят наполовину загруженный сайт
+            # Swap the whole directory: visitors never see a half-uploaded site
             rm -rf ${{ vars.SITE_DOMAIN }}.old
-            # Файлы сборки прошлых версий оставляем: открытые и закешированные страницы продолжают их загружать
+            # Keep build assets of previous versions: open and cached pages keep loading them
             if [ -d ${{ vars.SITE_DOMAIN }}/_next/static ]; then
               mkdir -p ${{ vars.SITE_DOMAIN }}.new/_next/static
               cp -rn ${{ vars.SITE_DOMAIN }}/_next/static/. ${{ vars.SITE_DOMAIN }}.new/_next/static/
@@ -108,7 +108,7 @@ jobs:
             mv ${{ vars.SITE_DOMAIN }}.new ${{ vars.SITE_DOMAIN }}
 
       - name: Smoke check
-        # 401 — сайт отвечает, но закрыт паролем (режим предпросмотра до готовности Impressum)
+        # 401 means the site answers but is password-protected (preview mode)
         run: |
           code=$(curl --silent --location --retry 5 --retry-delay 3 -o /dev/null -w "%{http_code}" "https://${{ vars.SITE_DOMAIN }}/en/")
           echo "HTTP $code"

@@ -1,14 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Статический экспорт: `next build` кладёт готовый сайт в out/, на сервере нужен только nginx
+  // Static export: `next build` writes the finished site to out/, the server only needs nginx
   output: "export",
-  // /en/ -> out/en/index.html — так nginx отдаёт страницы без дополнительных правил
+  // /en/ -> out/en/index.html — nginx serves pages without extra rules
   trailingSlash: true,
-  // Оптимизация картинок требует сервер; фото заранее подготовлены в public/images
+  // Image optimisation needs a server; photos are pre-sized in public/images
   images: { unoptimized: true },
   experimental: {
-    // Единая страница 404: корневых layout два ([lang] и редирект с "/")
+    // Single 404 page: there are two root layouts ([lang] and the "/" redirect)
     globalNotFound: true,
   },
   turbopack: {

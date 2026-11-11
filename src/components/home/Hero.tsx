@@ -17,7 +17,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
 
   return (
     <section className="relative isolate overflow-hidden border-b border-line">
-      {/* Фото площади в Берлине: приглушено, тонировано и покрыто сканлайнами */}
+      {/* Photo of a Berlin square: dimmed, tinted and covered with scanlines */}
       <div className="scanlines absolute inset-0 -z-10">
         <Photo
           name="hero"
